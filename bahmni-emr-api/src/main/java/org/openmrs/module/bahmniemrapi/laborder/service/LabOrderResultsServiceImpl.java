@@ -64,9 +64,6 @@ public class LabOrderResultsServiceImpl implements LabOrderResultsService {
         int currentAccession = 0;
         for (int count = totalEncounters - 1; count >= 0; count--) {
             Encounter encounter = encounters.get(count);
-            if (currentAccession >= numberOfAccessions) {
-                break;
-            }
 
             EncounterTransaction encounterTransaction = encounterTransactionMapper.map(encounter, false);
             List<EncounterTransaction.Order> existingTestOrders = filterTestOrders(encounterTransaction, encounter, encounterTestOrderUuidMap, null, null, null);
